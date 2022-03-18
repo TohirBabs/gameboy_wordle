@@ -1,0 +1,22 @@
+{
+  "name": "wordle_clone",
+  "version": "1.0.0",
+  "description": "wordle game",
+  "main": "app.js",
+  "scripts": {
+    "start:backend": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "wordle",
+    "game"
+  ],
+  "author": "dev_bro",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15"
+  }
+}
