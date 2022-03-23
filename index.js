@@ -3,8 +3,11 @@ const PORT = 8000
 const axios = require("axios").default;
 const express = require("express")
 const cors = require("cors")
+require('dotenv').config()
 
 const app = express()
+
+app.use(cors())
 
 app.get('/word', (req, res) => {
     const options = {
@@ -13,17 +16,40 @@ app.get('/word', (req, res) => {
         params: {wordLength: '5'},
         headers: {
           'x-rapidapi-host': 'random-words5.p.rapidapi.com',
-          'x-rapidapi-key': '237c301ce7mshbfbfe7cd8648088p162278jsn97333e1fbe2e'
+          'x-rapidapi-key': process.env.RAPID_API_KEY
         }
       };
       
-      axios.request(options).then(function (response) {
+      axios.request(options).then((response) => {
           console.log(response.data)
           res.json(response.data);
-      }).catch(function (error) {
+      }).catch((error) => {
           console.error(error);
       });
 })
 
-app.listen(PORT, () => console.log('Seever running on port ' + PORT))
+
+app.get('/check', (req,res) => {
+  const word = (req.query.word)
+
+  const options = {
+    method: 'GET', 
+    url: 'https://twinword-word-graph-dictionary.p.rapidapi.com/association/',
+    params: {entry: word},
+    headers: {
+      'X-RapidAPI-Host': 'twinword-word-graph-dictionary.p.rapidapi.com',
+      'X-RapidAPI-Key': process.env.RAPID_API_KEY
+    }
+  };
+  
+  axios.request(options).then((response) => {
+    console.log(response.data);
+    res.json(response.data.result_msg)
+  }).catch((error) => {
+    console.error(error);
+  });
+  
+})
+
+app.listen(PORT, () => console.log('Sever running on port ' + PORT))
 

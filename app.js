@@ -1,10 +1,10 @@
-const { response } = require("express")
+// const { response } = require("express")
 
 const tileDisplay = document.querySelector('.tile-container')
 const keyboard = document.querySelector('.key-container')
 const messageDisplay = document.querySelector('.message-container')
 
-let wordle 
+let wordle = 'SUPER'
 
 
 const getWordle = () => {
@@ -67,22 +67,22 @@ guessRow.forEach((guess, guessIndex) => {
 })
 
 const handleClick = (key) => {
-
-
-    if (key === '<<'){
-        deleteLetter()
-        return
-    }
-
-    else if (key === 'ENTER'){
-        checkRow()
-        return
-    }
-
-    else {
-        addLetter(key)
-    }
-    console.log('clicked ' + key)
+    if (!isGameOver){
+        if (key === '<<'){
+            deleteLetter()
+            return
+        }
+    
+        else if (key === 'ENTER'){
+            checkRow()
+            return
+        }
+    
+        else {
+            addLetter(key)
+        }
+        console.log('clicked ' + key)
+    }    
 }
 
 const addLetter = (letter) => {
@@ -117,26 +117,36 @@ const deleteLetter = () =>{
 }
 
 const checkRow = () => {
+    const guess = guessRows[currentRow].join('')
     if (currentTile > 4) {
-        const guess = guessRows[currentRow].join('')
-        console.log('guess is ' + guess + ', Wordle is ' + wordle)
-        flipTile()
-
-        if (wordle === guess) {
-            showMessage('Magnificient!')
-            isGameOver = True
-            return
-        }
-        else if (currentRow >= 5) {
-            showMessage('Game Over!')
-            isGameOver = true
-            return
-        }
-        if (currentRow < 5) {
-            currentRow++
-            currentTile = 0
-        }
-        
+        fetch(`http://localhost:8000/check/?word=${guess}`)
+            .then(response => response.json())
+            .then(json => {
+                console.log(json)
+                if (json == "Entry word not found"){
+                    showMessage("Word not in list")
+                    return
+                }
+                else {
+                    console.log('guess is ' + guess + ', Wordle is ' + wordle)
+                    flipTile()
+            
+                    if (wordle === guess) {
+                        showMessage('Magnificient!')
+                        isGameOver = true;
+                        return
+                    }
+                    else if (currentRow >= 5) {
+                        showMessage('Game Over!')
+                        isGameOver = true
+                        return
+                    }
+                    if (currentRow < 5) {
+                        currentRow++
+                        currentTile = 0
+                    } 
+                }
+            }).catch(err => console.log(err))
         console.log('guessRows', guessRows  )
     }
 }
