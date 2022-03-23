@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
 *{
-    color: #ffffff;
-    font-family: monospace;
+    font-family: 'Press Start 2P', cursive;
 }
 
 body{
-    background-color: #121213;
+    background-color: #e2e8ec;
 }
 
 .game-container{
@@ -23,48 +25,59 @@ body{
 }
 
 .tile-container{
-    width: 330px;
-    margin-top: 30px;
-    margin-bottom: 25px;
+    border-radius: 10px 10px 0 0;
+    width: 300px;
+    padding: 12px;
+    background-color: #c4d0a2;
+    box-shadow: 4px 4px 8px #cbcbcb, 4px -4px 8px #ffff;
 }
 
 .key-container{
-    width: 510px;
+    border-radius: 0 0 10px 10px ;
+    width: 300px;
+    padding: 12px;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: #8b966e;
+    box-shadow: 4px 4px 8px #cbcbcb, 4px -4px 8px #ffff;
 }
 
 .key-container button{
-    width: 43px;
-    height: 58px;
+    width: 37px;
+    height: 35px;
     border-radius: 4px;
-    border: none;
-    background-color: #818384;
-    margin: 4px;
+    background-color: inherit;
+    border: #c4d0a2 2px solid;
+    color: #c4d0a2;
+    margin: 2px;
+    font-size: 20px;
 }
 
-.key-container button:nth-child(11){
-    margin-left: 30px;
+ .key-container button:last-child{
+    width: 285px;
 }
 
-.key-container button:nth-child(20),
-.key-container button:nth-child(28){
-    width: 68px;
-}
+.key-container button:nth-child(27){
+    width: 79px;
+} 
 
 .tile-container div{
     display: flex;
 }
 
 .tile-container .tile {
-    width: 62px;
-    height: 62px;
-    border: 2px solid #3a3a3c;
+    width: 56px;
+    height: 56px;
+    border: 2px solid #8f9c8d;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 2px;
+    font-size: 35px;
+    color: #3a3a3c;
 }
 
 .message-container{
@@ -98,17 +111,20 @@ body{
 }
 
 .grey-overlay {
-    background-color:  #3a3a3c !important;
+    background-color:  #8b966e !important;
+    color: #c4d0a2 !important;
     border: none !important;
 }
 
 .yellow-overlay {
-    background-color:  #b59f3a !important;
+    background-color:  #4e533d !important;
+    color: #c4d0a2 !important;
     border: none !important;
 }
 
 .green-overlay {
-    background-color:  #538d4e !important;
+    background-color:  #1f1f1f !important;
+    color: #c4d0a2 !important;
     border: none !important;
 }
 

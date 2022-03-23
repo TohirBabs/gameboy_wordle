@@ -7,27 +7,27 @@ const messageDisplay = document.querySelector('.message-container')
 let wordle = 'SUPER'
 
 
-const getWordle = () => {
-    fetch('http://localhost:8000/word')
-    .then(response => response.json())
-    .then(json =>  {
-        console.log(json)
-        wordle = json.toUpperCase()
-    })
+// const getWordle = () => {
+//     fetch('http://localhost:8000/word')
+//     .then(response => response.json())
+//     .then(json =>  {
+//         console.log(json)
+//         wordle = json.toUpperCase()
+//     })
 
-    .catch(err => console.log(err))
-}
+//     .catch(err => console.log(err))
+// }
 
-getWordle()
+// getWordle()
 
 const keys = [
-    'Q','W','E','R','T','Y','U','I','O','P',
-    'A','S','D','F','G','H','J','K','L',
-    'ENTER','Z','X','C','V','B','N','M','<<'
+    'A','B','C','D','E','F','G','H','I',
+    'J','K','L','M','N','O','P','Q',
+    'R','S','T','U','V','W','X',
+    'Y','Z','<<','ENTER'
 ]
 
 const guessRows = [
-    ['','','','',''],
     ['','','','',''],
     ['','','','',''],
     ['','','','',''],
@@ -119,15 +119,15 @@ const deleteLetter = () =>{
 const checkRow = () => {
     const guess = guessRows[currentRow].join('')
     if (currentTile > 4) {
-        fetch(`http://localhost:8000/check/?word=${guess}`)
-            .then(response => response.json())
-            .then(json => {
-                console.log(json)
-                if (json == "Entry word not found"){
-                    showMessage("Word not in list")
-                    return
-                }
-                else {
+        // fetch(`http://localhost:8000/check/?word=${guess}`)
+        //     .then(response => response.json())
+        //     .then(json => {
+        //         console.log(json)
+                // if (json == "Entry word not found"){
+                //     showMessage("Word not in list")
+                //     return
+                // }
+                // else {
                     console.log('guess is ' + guess + ', Wordle is ' + wordle)
                     flipTile()
             
@@ -145,8 +145,8 @@ const checkRow = () => {
                         currentRow++
                         currentTile = 0
                     } 
-                }
-            }).catch(err => console.log(err))
+                // }
+            // }).catch(err => console.log(err))
         console.log('guessRows', guessRows  )
     }
 }
@@ -156,7 +156,7 @@ const showMessage = (message) => {
     messaageElement.textContent = message
     messageDisplay.append(messaageElement)
 
-    setTimeout(() => messageDisplay.removeChild(messaageElement), 2000)
+    setTimeout(() => messageDisplay.removeChild(messaageElement), 5000)
 }
 
 const addColorToKey = (keyLetter, color) => {
