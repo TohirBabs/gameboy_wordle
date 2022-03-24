@@ -40,7 +40,7 @@ body{
     align-items: center;
     justify-content: center;
     background-color: #8b966e;
-    box-shadow: 4px 4px 8px #cbcbcb, 4px -4px 8px #ffff;
+    box-shadow: 4px 4px 8px #cbcbcb;
 }
 
 .key-container button{
