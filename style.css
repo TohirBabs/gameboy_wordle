@@ -11,7 +11,7 @@ body{
 
 .game-container{
     position: relative;
-    height: 90vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -21,7 +21,6 @@ body{
 .title-container{
     text-align: center;
     width: 510px;
-    border-bottom: solid 1px #3a3a3c;
 }
 
 .tile-container{
@@ -42,7 +41,7 @@ body{
     justify-content: center;
     background-color: #8b966e;
     box-shadow: 4px 4px 8px #cbcbcb, 4px -4px 8px #ffff;
-}
+}s
 
 .key-container button{
     width: 37px;
