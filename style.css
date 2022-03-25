@@ -2,7 +2,7 @@
 
 
 *{
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'Press Start 2P', monospace;
 }
 
 body{
@@ -21,6 +21,10 @@ body{
 .title-container{
     text-align: center;
     font-size: 10px;
+}
+
+.title-container h1{
+    margin: 0.3em 0;
 }
 
 .tile-container{
