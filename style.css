@@ -58,7 +58,11 @@ body{
     font-size: 18px;
 }
 
- .key-container button:last-child{
+.key-container button:hover{
+    border-color:#818384;
+}
+
+.key-container button:last-child{
     width: 285px;
 }
 

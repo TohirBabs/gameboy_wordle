@@ -13,8 +13,8 @@ app.get('/word', (req, res) => {
         url: 'https://random-words5.p.rapidapi.com/getMultipleRandom',
         params: {count: '5', wordLength: '5'},
         headers: {
-            'x-rapidapi-host': 'random-words5.p.rapidapi.com',
-            'x-rapidapi-key': process.env.RAPID_API_KEY
+        'X-RapidAPI-Host': 'random-words5.p.rapidapi.com',
+        'X-RapidAPI-Key': process.env.RAPID_API_KEY
         }
     }
     axios.request(options).then((response) => {
