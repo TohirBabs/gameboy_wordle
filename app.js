@@ -2,6 +2,11 @@ const tileDisplay = document.querySelector('.tile-container')
 const keyboard = document.querySelector('.key-container')
 const messageDisplay = document.querySelector('.message-container')
 
+const play = document.getElementById('play')
+const display = document.getElementById('display')
+const welcome = document.getElementById('welcome')
+
+
 let wordle
 
 fetch('http://localhost:8000/word')
@@ -183,5 +188,11 @@ const flipTile = () => {
             addColorToKey(guess[index].letter, guess[index].color)
         }, 500 * index)
     })
+}
+
+function slideUp() {
+    tileDisplay.classList.add('slide-up')
+    welcome.classList.add('slide-up')
+    console.log('slideup')
 }
 

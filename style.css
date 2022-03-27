@@ -3,10 +3,22 @@
 
 *{
     font-family: 'Press Start 2P', monospace;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body{
     background-color: #e2e8ec;
+}
+
+button{
+    background: transparent;
+    border: none;
+}
+
+button:hover{
+    cursor: pointer;
 }
 
 .game-container{
@@ -27,18 +39,74 @@ body{
     margin: 0.3em 0;
 }
 
-.tile-container{
+.display{
+    max-height: 312px;
+    overflow: hidden;
     border-radius: 10px 10px 0 0;
-    width: 300px;
-    padding: 12px;
     background-color: #c4d0a2;
     box-shadow: 4px 4px 8px #cbcbcb, 4px -4px 8px #ffff;
 }
 
+.welcome{
+    padding: 30px 20px;
+    height: 305px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1f1f1f;
+}
+
+.sign{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #c4d0a2;
+    width: 100%;
+    height: 150px;
+}
+
+.sign h1{
+    font-size: 25px;
+    letter-spacing: 15px;
+    margin-bottom: 20px;
+}
+
+.sign p{
+    font-size: 15px;
+    letter-spacing: 15px;
+    color: #8b966e;
+}
+
+.actions{
+    display: flex;
+    justify-content: space-between;
+    background-color: #c4d0a2;
+    width: 100%;
+    height: 50px;  
+}
+
+.actions button{
+    padding: 0 10px;
+    font-size: 20px;
+    letter-spacing: 3px;
+}
+
+.tile-container{
+    width: 320px;
+    height: 320px;
+    overflow: scroll;
+    padding: 12px;
+}
+
+
+
 .key-container{
     border-radius: 0 0 10px 10px ;
-    width: 300px;
-    padding: 12px;
+    width: 320px;
+     padding: 12px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -135,3 +203,7 @@ body{
     border: none !important;
 }
 
+
+.slide-up{
+    transform: translateY(-305px);
+}
