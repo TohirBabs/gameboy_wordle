@@ -23,7 +23,7 @@ button:hover{
 
 .game-container{
     position: relative;
-    height: 90vh;
+    height: 95vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -105,7 +105,7 @@ button:hover{
 
 .key-container{
     border-radius: 0 0 10px 10px ;
-    width: 320px;
+    width: 100vw;
      padding: 12px;
     display: flex;
     flex-wrap: wrap;
@@ -116,8 +116,8 @@ button:hover{
 }
 
 .key-container button{
-    width: 37px;
-    height: 30px;
+    width: 50px;
+    height: 35px;
     border-radius: 4px;
     background-color: inherit;
     border: #c4d0a2 2px solid;
@@ -206,4 +206,5 @@ button:hover{
 
 .slide-up{
     transform: translateY(-305px);
+    transition: all 500ms ease-in-out;
 }
